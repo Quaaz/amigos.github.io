@@ -29,15 +29,14 @@
             }
         }
 
-        // Function to handle file upload via POST request
         async function handleUpload(event) {
+            event.preventDefault();
             const file = event.dataTransfer ? event.dataTransfer.files[0] : event.target.files[0];
             if (file) {
                 await uploadFile(file);
             }
         }
 
-        // Listen for drag-and-drop or file selection
         window.addEventListener('drop', handleUpload);
         window.addEventListener('dragover', event => event.preventDefault());
         window.addEventListener('change', handleUpload);
